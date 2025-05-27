@@ -1,6 +1,7 @@
 import { Geist, Noto_Sans_Georgian } from "next/font/google";
 import "./globals.css";
 import Header from "./Components/Header";
+import Footer from "./Components/Footer";
 
 const noto_Sans_Georgian = Noto_Sans_Georgian({
   subsets: ["latin"],
@@ -18,6 +19,7 @@ export default function RootLayout({ children }) {
       <body className={`${noto_Sans_Georgian.className} antialiased`}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

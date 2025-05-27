@@ -5,3 +5,130 @@ body {
   color: black;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.transition-font {
+  transition: font-weight 0.3s ease;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.bg-gradient-soft-pink {
+  background-image: linear-gradient(
+    to bottom,
+    rgb(255, 255, 255),
+    rgba(249, 206, 255, 0.7),
+    rgb(255, 255, 255)
+  );
+}
+
+.logos:before,
+.logos:after {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+
+.logos:before {
+  left: 0;
+  /* background: linear-gradient(to left, rgba(255, 255, 255, 0), white); */
+}
+
+.logos:after {
+  right: 0;
+  /* background: linear-gradient(to right, rgba(255, 255, 255, 0), white); */
+}
+
+.logos:hover .logos-slide {
+  animation-play-state: paused;
+}
+
+.logos-slide {
+  /* display: inline-block; */
+  animation: 35s slide infinite linear;
+}
+
+@media only screen and (max-width: 768px) {
+  .logos-slide {
+    animation: 10s slide infinite linear;
+  }
+}
+
+/* Define the keyframes for the underline animation */
+@keyframes custom-underline {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Initial state of the underline */
+.custom-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.custom-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px; /* Adjust based on your preference */
+  height: 2px; /* Adjust based on your preference */
+  width: 0;
+  background-color: purple; /* Makes the underline color same as text color */
+  transition: width 0.3s ease-in-out; /* Adjust timing as needed */
+}
+
+/* Hover state of the underline */
+.custom-underline:hover::after {
+  width: 100%;
+}
+
+@keyframes zoomInOut {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.zoom-effect {
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  margin: 0 auto;
+  animation: zoomInOut 1s infinite;
+}
+
+.zoom-effect img {
+  height: auto;
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .zoom-effect {
+    width: 100px;
+    height: 100px;
+  }
+}

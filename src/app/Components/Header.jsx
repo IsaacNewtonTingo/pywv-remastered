@@ -37,7 +37,7 @@ export default function Header() {
     },
   ];
   return (
-    <div className="bg-[#ffddeb] h-[100px] flex items-center justify-between shadow-lg px-[40px] text-[24px]">
+    <div className="bg-[#ffddeb] h-[100px] flex items-center justify-between shadow-lg px-[40px] text-[20px]">
       {/* logo */}
       <Image
         src={"/pywv-logo.webp"}
