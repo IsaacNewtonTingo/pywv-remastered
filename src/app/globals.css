@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@plugin "flowbite-react/plugin/tailwindcss";
+@source "../../.flowbite-react/class-list.json";
 
 body {
   background: white;
@@ -31,6 +33,12 @@ body {
     rgb(255, 255, 255),
     rgba(249, 206, 255, 0.7),
     rgb(255, 255, 255)
+  );
+}
+.my-page-gradient {
+  backgroundimage: linear-gradient(
+    to bottom rgb(255, 221, 235),
+    rgb(131, 0, 87)
   );
 }
 
