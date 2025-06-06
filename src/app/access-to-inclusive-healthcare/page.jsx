@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import fs from "fs";
 import path from "path";
+import ListCard from "../Components/ListCard";
 
 export default function Page() {
   const data = [
@@ -38,58 +39,13 @@ export default function Page() {
       <Title>Access To Inclusive Healthcare</Title>
       <div className="grid grid-cols-1 lg:grid-cols-3 mt-10 gap-6">
         {data.map((item) => (
-          <div
+          <ListCard
             key={item.title}
-            className="rounded-lg bg-gray-100 p-6 text-center flex flex-col items-center  "
-          >
-            <Image
-              src={item.image}
-              width={100}
-              height={100}
-              alt={item.title}
-              className="w-auto h-auto"
-            />
-
-            <h3 className="font-bold text-[20px] my-10">{item.title}</h3>
-            <h3>{item.preview}</h3>
-
-            <Link
-              href={`/access-to-inclusive-healthcare/${item.slug}`}
-              className={`border border-gray-700 text-orange-500 w-full h-[50px] mt-10 flex items-center justify-center hover:bg-black hover:rounded-lg hover:text-white`}
-            >
-              View
-            </Link>
-          </div>
+            item={item}
+            folder={"access-to-inclusive-healthcare"}
+          />
         ))}
       </div>
     </MyPage>
   );
 }
-
-// export async function getStaticPaths() {
-//   const filePath = path.join(
-//     process.cwd(),
-//     "data",
-//     "access-to-inclusive-healthcare.json"
-//   );
-//   const data = JSON.parse(fs.readFileSync(filePath, "utf8"));
-
-//   const paths = data.map((item) => ({
-//     params: { slug: item.slug },
-//   }));
-
-//   return { paths, fallback: false };
-// }
-
-// export async function getStaticProps({ params }) {
-//   const filePath = path.join(
-//     process.cwd(),
-//     "data",
-//     "access-to-inclusive-healthcare.json"
-//   );
-//   const team = JSON.parse(fs.readFileSync(filePath, "utf8"));
-
-//   const person = team.find((p) => p.slug === params.slug);
-
-//   return { props: { person } };
-// }
