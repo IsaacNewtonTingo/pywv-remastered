@@ -2,6 +2,8 @@ import React from "react";
 import MyPage from "../Components/MyPage";
 import Title from "../Components/Title";
 import ListCard from "../Components/ListCard";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Page() {
   const resources = [
@@ -46,15 +48,6 @@ export default function Page() {
       description: ``,
       slug: "carving-the-path-for-transformative-lgbtqia+-rogramming-in-kenya",
     },
-    {
-      title: "Annual Reports",
-      image: "/pywv-reports.png",
-      preview: "Have a look at our",
-      description: ``,
-      link1: "/pywv-2023-report.pdf",
-      link2: "/pywv-2024-report.pdf",
-      slug: "annual-reports",
-    },
   ];
   return (
     <MyPage padding_x="lg:px-20">
@@ -68,6 +61,39 @@ export default function Page() {
         {resources.map((item) => (
           <ListCard key={item.title} item={item} folder={"resources"} />
         ))}
+
+        <div className="rounded-lg bg-gray-100 p-6 text-center flex flex-col items-center  ">
+          <Image
+            src={"/pywv-reports.png"}
+            width={100}
+            height={100}
+            alt={"Annual Report"}
+            className="w-auto h-auto"
+          />
+
+          <h3 className="font-bold text-[20px] my-10">Annual Reports</h3>
+          <h3>Have a look at our</h3>
+          <ul>
+            <li>
+              <Link
+                className="text-blue-600 underline"
+                target="_blank"
+                href={"/pywv-2023-report.pdf"}
+              >
+                2023 Report
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="text-blue-600 underline"
+                target="_blank"
+                href={"/pywv-2024-report.pdf"}
+              >
+                2024 Report
+              </Link>
+            </li>
+          </ul>
+        </div>
       </div>
     </MyPage>
   );
