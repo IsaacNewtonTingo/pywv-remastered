@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function Title({ children }) {
-  return <h1 className="font-black text-[40px]">{children}</h1>;
+export default function Title({ children, className }) {
+  return <h1 className={`font-black text-[40px] ${className}`}>{children}</h1>;
 }
