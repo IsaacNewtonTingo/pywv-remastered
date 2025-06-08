@@ -1,5 +1,13 @@
 import React from "react";
+import CustomCarousel from "../CustomCarousel";
+import images from "@/app/data/images";
 
 export default function HeroSection() {
-  return <div className="h-screen bg-gray-200"></div>;
+  return (
+    <CustomCarousel>
+      {images.map((image, index) => {
+        return <img key={index} src={image.imgURL} alt={image.imgAlt} />;
+      })}
+    </CustomCarousel>
+  );
 }
