@@ -169,6 +169,9 @@ body {
 .container__slider__links-small-active {
   background-color: black;
 }
+.mimi {
+  text-shadow: #000 1px 1px 1px;
+}
 
 .slider__item {
   box-sizing: border-box;
@@ -212,4 +215,37 @@ body {
 .slider__item img {
   width: 100%;
   height: auto;
+}
+
+.animated-gradient {
+  background: linear-gradient(270deg, #ff0080, #ffed9f, #ff006a);
+  background-size: 600% 600%;
+  animation: gradientAnimation 8s ease infinite;
+  opacity: 70%;
+}
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes slideUpDelayed {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+.animate-slide-up-delayed {
+  animation: slideUpDelayed 0.8s ease-out 1.2s forwards;
 }

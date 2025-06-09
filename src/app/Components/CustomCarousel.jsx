@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 
-function CustomCarousel({ children }) {
+function CustomCarousel({ children, images }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [slideDone, setSlideDone] = useState(true);
   const [timeID, setTimeID] = useState(null);
@@ -13,14 +13,14 @@ function CustomCarousel({ children }) {
         setTimeout(() => {
           slideNext();
           setSlideDone(true);
-        }, 2000)
+        }, 4000)
       );
     }
   }, [slideDone]);
 
   const slideNext = () => {
     setActiveIndex((val) => {
-      if (val >= children.length - 1) {
+      if (val >= images.length - 1) {
         return 0;
       } else {
         return val + 1;
@@ -31,7 +31,7 @@ function CustomCarousel({ children }) {
   const slidePrev = () => {
     setActiveIndex((val) => {
       if (val <= 0) {
-        return children.length - 1;
+        return images.length - 1;
       } else {
         return val - 1;
       }
@@ -52,24 +52,26 @@ function CustomCarousel({ children }) {
   };
 
   return (
-    <div
-      className="container__slider h-[900px]"
-      // onMouseEnter={AutoPlayStop}
-      // onMouseLeave={AutoPlayStart}
-    >
-      {children.map((item, index) => {
+    <div className="container__slider h-[900px]">
+      {images.map((item, index) => {
         return (
           <div
             className={"slider__item slider__item-active-" + (activeIndex + 1)}
             key={index}
           >
-            {item}
+            <img key={index} src={item.imgURL} alt={item.imgAlt} />;
+            <div className="w-[40%] z-40 bg-amber-50 h-full absolute left-0 pl-20 top-[100px] text-black animated-gradient rounded-tr-[600px] flex items-center">
+              <h4 className="font-black text-[50px] text-orange-500 text-shadow-lg mimi">
+                {item.title}{" "}
+                <span className="text-white">{item.description}</span>
+              </h4>
+            </div>
           </div>
         );
       })}
 
       <div className="container__slider__links">
-        {children.map((item, index) => {
+        {images.map((item, index) => {
           return (
             <button
               key={index}
@@ -86,25 +88,6 @@ function CustomCarousel({ children }) {
           );
         })}
       </div>
-
-      <button
-        className="slider__btn-next"
-        onClick={(e) => {
-          e.preventDefault();
-          slideNext();
-        }}
-      >
-        {">"}
-      </button>
-      <button
-        className="slider__btn-prev"
-        onClick={(e) => {
-          e.preventDefault();
-          slidePrev();
-        }}
-      >
-        {"<"}
-      </button>
     </div>
   );
 }
