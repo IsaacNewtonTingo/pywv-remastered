@@ -108,7 +108,7 @@ export default function Header() {
         src={"/pywv-logo.webp"}
         width={80}
         height={80}
-        className=""
+        className="wobble"
         alt="PYWV Logo"
       />
 
