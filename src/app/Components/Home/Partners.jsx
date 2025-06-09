@@ -20,9 +20,9 @@ export default function Partners() {
     },
   ];
   return (
-    <div className="px-6 lg:px-40 py-20 bg-black mt-20">
+    <div className="px-6 lg:px-40 py-10 lg:py-20 bg-black mt-20 h-auto">
       <h2 className="text-white font-bold mb-10">Our Partners</h2>
-      <div className="logos">
+      <div className="logos overflow-hidden">
         <div className="logos-slide flex gap-10">
           {partners.map((item) => (
             <Image
@@ -42,7 +42,7 @@ export default function Partners() {
               alt={item.logo}
               width={300}
               height={300}
-              className="object-contain lg:w-[100px]"
+              className="w-[200px] h-[100px] object-contain lg:w-[100px]"
             />
           ))}
           {partners.map((item) => (
@@ -52,7 +52,7 @@ export default function Partners() {
               alt={item.logo}
               width={300}
               height={300}
-              className="object-contain lg:w-[100px]"
+              className="w-[200px] h-[100px] object-contain lg:w-[100px]"
             />
           ))}
         </div>

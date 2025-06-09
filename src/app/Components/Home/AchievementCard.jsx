@@ -31,18 +31,20 @@ export default function AchievementCard({
   }, [startCounting, title, duration]);
 
   return (
-    <div className="text-[#d47100] border-l-[1px] border-l-[#f9ceff] pl-8 h-[180px] flex flex-col justify-center">
+    <div className="text-[#d47100] border-l-[1px] border-l-[#f9ceff] pl-8 h-[180px] flex flex-col items-center justify-center gap-4">
       <Image
         src={icon}
         width={100}
         height={100}
         alt={description}
-        className=""
+        className="w-[70px] h-[70px] object-contain"
       />
-      <p className="font-black text-[60px] lg:text-[40px]">
+      <p className="font-black text-[20px] lg:text-[60px] whitespace-nowrap">
         {number.toLocaleString()} +
       </p>
-      <p className="text-[25px] text-[#6e6e6e] font-bold">{description}</p>
+      <p className="text-[14px] lg:text-[25px] text-[#6e6e6e] font-bold text-center">
+        {description}
+      </p>
     </div>
   );
 }

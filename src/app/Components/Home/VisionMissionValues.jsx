@@ -35,8 +35,8 @@ export default function VisionMissionValues() {
     },
   ];
   return (
-    <div className="flex flex-col items-center justify-center mt-40 px-40">
-      <div className="flex flex-col items-center w-[50%]">
+    <div className="flex flex-col items-center justify-center mt-40 px-6 lg:px-40">
+      <div className="flex flex-col items-center w-full lg:w-[50%]">
         <Image
           src={"/vision.png"}
           width={250}
@@ -50,7 +50,7 @@ export default function VisionMissionValues() {
         </h4>
       </div>
 
-      <div className="flex flex-col items-center w-[50%] mt-20">
+      <div className="flex flex-col items-center w-full lg:w-[50%] mt-20">
         <Image
           src={"/mission.png"}
           width={250}
@@ -75,11 +75,11 @@ export default function VisionMissionValues() {
           alt="Core values"
         />
 
-        <div className="grid grid-cols-2 lg:grid-cols-5 gap-10 mt-20 ">
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-10 mt-20 text-[14px] lg:text-[20px]">
           {core_values.map((item) => (
             <div
               key={item.name}
-              className="flex flex-col items-center justify-center gap-6"
+              className="flex flex-col items-center justify-center gap-6 shadow-lg lg:shadow-none rounded-lg lg:rounded-none p-4 lg:p-0"
             >
               <Image
                 src={item.icon}

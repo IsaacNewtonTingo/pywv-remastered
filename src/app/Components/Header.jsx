@@ -113,7 +113,7 @@ export default function Header() {
       />
 
       {/* links */}
-      <div className="flex items-center gap-4">
+      <div className="items-center gap-4 hidden lg:flex">
         {routes.map((item) => {
           const isActive = pathname === item.navTo;
           const linkStyles = isActive
@@ -160,7 +160,7 @@ export default function Header() {
       </div>
 
       {/* socials */}
-      <div className="flex items-center gap-2">
+      <div className="hidden lg:flex items-center gap-2">
         <button className="w-[100px] text-[14px] h-[40px] rounded-[20px] border border-[1px] border-white shadow-lg bg-[#ad0074] text-white font-bold ">
           Donate
         </button>

@@ -18,7 +18,7 @@ export default function Achievement() {
   return (
     <div
       ref={ref}
-      className="bg-gradient-soft-pink h-[400px] w-full p-10 lg:p-32 grid grid-cols-2 lg:grid-cols-3 gap-10"
+      className="bg-gradient-soft-pink min:h-[400px] w-full p-10 lg:p-32 grid grid-cols-3 gap-20"
     >
       <AchievementCard
         title={300}

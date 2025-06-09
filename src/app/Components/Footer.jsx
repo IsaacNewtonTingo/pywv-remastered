@@ -79,7 +79,7 @@ export default function Footer() {
     },
   ];
   return (
-    <div className="bg-[#303030] text-[20px] p-40 grid grid-cols-1 lg:grid-cols-2">
+    <div className="bg-[#303030] text-[20px] p-10 lg:p-40 grid grid-cols-1 lg:grid-cols-2">
       <div>
         <h2 className="font-bold mb-10 text-[24px] text-[#a0ffef]">
           Contact Us

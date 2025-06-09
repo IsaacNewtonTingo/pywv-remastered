@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import React, { useState, useEffect } from "react";
 
 function CustomCarousel({ children, images }) {
@@ -52,16 +53,26 @@ function CustomCarousel({ children, images }) {
   };
 
   return (
-    <div className="container__slider h-[900px]">
+    <div className="container__slider h-[500px] lg:h-[900px]">
       {images.map((item, index) => {
         return (
           <div
-            className={"slider__item slider__item-active-" + (activeIndex + 1)}
+            className={
+              "h-full relative slider__item slider__item-active-" +
+              (activeIndex + 1)
+            }
             key={index}
           >
-            <img key={index} src={item.imgURL} alt={item.imgAlt} />;
-            <div className="w-[40%] z-40 bg-amber-50 h-full absolute left-0 pl-20 top-[100px] text-black animated-gradient rounded-tr-[600px] flex items-center">
-              <h4 className="font-black text-[50px] text-orange-500 text-shadow-lg mimi">
+            <Image
+              key={index}
+              src={item.imgURL}
+              alt={item.imgAlt}
+              fill
+              className="h-full absolute w-full object-cover"
+            />
+
+            <div className="w-[60%] lg:w-[40%] z-40 bg-amber-50 h-full absolute left-0 pl-6 lg:pl-20 top-0 lg:top-[100px] text-black animated-gradient rounded-tr-[600px] flex items-center">
+              <h4 className="font-black lg:text-[50px] text-orange-500 text-shadow-lg mimi">
                 {item.title}{" "}
                 <span className="text-white">{item.description}</span>
               </h4>
