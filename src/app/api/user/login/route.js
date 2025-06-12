@@ -36,10 +36,12 @@ export async function POST(req) {
     }
 
     return Response.json({
+      status: "Success",
       message: "Login successful",
       data: user_data,
     });
   } catch (error) {
+    console.log(error);
     return Response.json({ status: "Failed", message: "Server error" });
   }
 }

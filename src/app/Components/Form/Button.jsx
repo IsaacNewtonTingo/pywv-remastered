@@ -9,6 +9,7 @@ export default function Button({
 }) {
   return (
     <button
+      type="submit"
       onClick={onClick}
       className={`bg-gray-700 text-white rounded-lg h-[50px] cursor-pointer ${
         processing || disabled ? "opacity-30" : ""

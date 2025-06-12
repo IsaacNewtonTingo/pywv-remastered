@@ -1,7 +1,7 @@
 import { connectDB } from "@/app/lib/mongodb";
 import blog from "@/app/models/blog";
 import user from "@/app/models/user";
-import cheerio from "cheerio";
+const cheerio = require("cheerio");
 
 export async function POST(req) {
   try {
@@ -27,11 +27,6 @@ export async function POST(req) {
         return Response.json({
           status: "Failed",
           message: "Post content is required",
-        });
-      } else if (!image) {
-        return Response.json({
-          status: "Failed",
-          message: "Post image is required",
         });
       } else {
         const read_time = await getReadTime(content);

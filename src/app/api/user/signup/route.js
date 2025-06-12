@@ -33,7 +33,7 @@ export async function POST(req, res) {
 
     return Response.json({
       status: "Success",
-      message: "All fields are required",
+      message: "User Created Successfully",
     });
   }
 }
