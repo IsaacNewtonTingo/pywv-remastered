@@ -7,6 +7,7 @@ export default function TextInput({
   type,
   placeholder,
   required,
+  maxLength,
 }) {
   return (
     <input
@@ -16,6 +17,7 @@ export default function TextInput({
       className={`h-[50px] rounded-lg border px-4 ${className}`}
       placeholder={placeholder}
       required={required}
+      maxLength={maxLength}
     />
   );
 }

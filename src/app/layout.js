@@ -1,4 +1,5 @@
 import "./globals.css";
+import "./content-styles.css";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import { AppContextProvider } from "./Context/AppContext";
