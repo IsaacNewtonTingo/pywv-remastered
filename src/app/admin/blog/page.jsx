@@ -18,7 +18,7 @@ export default function Page() {
     try {
       const response = await axios.get(`/api/blog`);
       if (response.data.status == "Success") {
-        set_posts();
+        set_posts(response.data.data);
       } else {
         toast.error(response.data.message);
       }

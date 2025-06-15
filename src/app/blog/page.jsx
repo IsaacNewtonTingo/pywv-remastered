@@ -18,7 +18,7 @@ export default function Page() {
     try {
       const response = await axios.get(`/api/blog`);
       if (response.data.status == "Success") {
-        set_posts();
+        set_posts(response.data.data);
       } else {
         toast.error(response.data.message);
       }
@@ -38,7 +38,7 @@ export default function Page() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 mt-10">
-          {posts.data.map((item) => (
+          {posts.map((item) => (
             <NewsCard item={item} key={item._id} />
           ))}
         </div>
