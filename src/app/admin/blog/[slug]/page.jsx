@@ -12,6 +12,7 @@ import axios from "axios";
 import Label from "@/app/Components/Form/Label";
 import TextInput from "@/app/Components/Form/TextInput";
 import dynamic from "next/dynamic";
+import { useRouter } from "next/navigation";
 
 const ClientSideCustomEditor = dynamic(
   () => import("@/app/Components/Admin/MyCKEditor"),
@@ -26,6 +27,8 @@ export default function Page({ params }) {
   const [preview, setPreview] = useState(post?.preview || "");
   const [content, setContent] = useState(post?.content || "");
   const [image, setImage] = useState(post?.image || "");
+
+  const router = useRouter();
 
   const [uploadingImage, setUploadingImage] = useState(false);
   const [processing, setProcessing] = useState(false);
@@ -99,11 +102,35 @@ export default function Page({ params }) {
       toast.error("An error occured");
     }
   }
+
+  async function delete_post() {
+    try {
+      const url = `/api/blog?user_id=${userData._id}&_id=${post._id}`;
+      const response = await axios.delete(url);
+      if (response.data.status == "Success") {
+        toast.success(response.data.message);
+        router.push("/admin/blog");
+      } else {
+        toast.error(response.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("An error occured while deleting post");
+    }
+  }
   return (
     <MyPage padding_x="lg:px-10 bg-white">
       <Toaster />
       <Container>
-        <Title className={"mb-10"}>UPDATE BLOG POST</Title>
+        <div className="mb-10 flex items-center justify-between">
+          <Title className={""}>UPDATE BLOG POST</Title>
+          <button
+            className="text-red-600 underline font-bold cursor-pointer"
+            onClick={delete_post}
+          >
+            Delete Post
+          </button>
+        </div>
 
         <FileUploader
           multiple={false}

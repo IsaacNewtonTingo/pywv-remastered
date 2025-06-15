@@ -101,7 +101,11 @@ body {
   bottom: -2px; /* Adjust based on your preference */
   height: 2px; /* Adjust based on your preference */
   width: 0;
-  background-color: purple; /* Makes the underline color same as text color */
+  background-color: rgb(
+    83,
+    83,
+    83
+  ); /* Makes the underline color same as text color */
   transition: width 0.3s ease-in-out; /* Adjust timing as needed */
 }
 

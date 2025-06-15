@@ -97,7 +97,6 @@ export async function GET(req) {
       data: posts,
     });
   } catch (error) {
-    console.log(error);
     return Response.json({
       status: "Failed",
       message: "An error occured",
@@ -148,6 +147,39 @@ export async function PUT(req) {
           data,
         });
       }
+    } else {
+      return Response.json({
+        status: "Failed",
+        message: "You don't have permission to perform this operation",
+      });
+    }
+  } catch (error) {
+    console.log(error);
+    return Response.json({
+      status: "Failed",
+      message: "An error occured",
+    });
+  }
+}
+
+export async function DELETE(req) {
+  try {
+    await connectDB();
+    const { searchParams } = new URL(req.url);
+    const user_id = searchParams.get("user_id");
+    const _id = searchParams.get("_id");
+
+    const existing_user = await user.findById(user_id);
+    if (
+      existing_user &&
+      (existing_user.role_id == 2 || existing_user.role_id == 1)
+    ) {
+      await blog.findByIdAndDelete(_id);
+
+      return Response.json({
+        status: "Success",
+        message: "Post deleted successfully",
+      });
     } else {
       return Response.json({
         status: "Failed",
