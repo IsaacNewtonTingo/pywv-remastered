@@ -1,3 +1,4 @@
+"use client";
 import Container from "@/app/Components/Container";
 import MyPage from "@/app/Components/MyPage";
 import NewsCard from "@/app/Components/NewsCard";
