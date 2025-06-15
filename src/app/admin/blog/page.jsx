@@ -1,13 +1,31 @@
+"use client";
 import Container from "@/app/Components/Container";
 import MyPage from "@/app/Components/MyPage";
 import NewsCard from "@/app/Components/NewsCard";
 import Title from "@/app/Components/Title";
+import axios from "axios";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
-export default async function Page() {
-  const data = await fetch(`/api/blog`, { cache: "no-cache" });
-  const posts = await data.json();
+export default function Page() {
+  const [posts, set_posts] = useState([]);
+  useEffect(() => {
+    fetchBlogs();
+  }, []);
+
+  async function fetchBlogs() {
+    try {
+      const response = await axios.get(`/api/blog`);
+      if (response.data.status == "Success") {
+        set_posts();
+      } else {
+        toast.error(response.data.message);
+      }
+    } catch (error) {
+      toast.error("An error occured");
+    }
+  }
   return (
     <MyPage padding_x="lg:px-10 bg-white">
       <div className="w-full bg-white p-20">
