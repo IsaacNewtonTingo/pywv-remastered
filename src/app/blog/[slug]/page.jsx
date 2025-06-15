@@ -18,9 +18,7 @@ export default function Page({ params }) {
 
   async function getPost() {
     try {
-      const response = await axios.get(
-        `${process.env.NEXT_PUBLIC_APP_URL}/api/blog?slug=${slug}`
-      );
+      const response = await axios.get(`/api/blog?slug=${slug}`);
       if (response.data.status == "Success") {
         set_post(response.data.data[0]);
       } else {

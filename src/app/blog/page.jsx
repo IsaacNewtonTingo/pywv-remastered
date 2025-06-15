@@ -6,7 +6,7 @@ import Link from "next/link";
 import React from "react";
 
 export default async function Page() {
-  const data = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/blog`);
+  const data = await fetch(`/api/blog`, { cache: "no-cache" });
   const posts = await data.json();
   return (
     <MyPage padding_x="lg:px-10 bg-white">

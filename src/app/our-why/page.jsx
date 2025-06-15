@@ -5,18 +5,19 @@ import Image from "next/image";
 
 export default function OurWhy() {
   return (
-    <MyPage>
+    <MyPage padding_x="px:0 md:px-20 lmd:px-20 lg:px-[400px]">
       <Container>
         <h1 className="font-bold text-[40px]">Our Why</h1>
-        <Image
-          src={"/our-why.jpg"}
-          width={200}
-          height={300}
-          alt="our why"
-          className="w-full mt-10"
-          priority
-          unoptimized
-        />
+        <div className="relative w-full h-[300px] lg:h-[800px] my-10">
+          <Image
+            src={"/our-why.jpg"}
+            fill
+            alt="our why"
+            className="object-cover"
+            priority
+            unoptimized
+          />
+        </div>
 
         <p className="mt-10">
           The need for <strong>love</strong> is the strongest emotion in the

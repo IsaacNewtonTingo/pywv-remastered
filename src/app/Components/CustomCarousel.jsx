@@ -71,7 +71,7 @@ function CustomCarousel({ children, images }) {
               className="h-full absolute w-full object-cover"
             />
 
-            <div className="w-[60%] lg:w-[40%] z-40 bg-amber-50 h-full absolute left-0 pl-6 lg:pl-20 top-0 lg:top-[100px] text-black animated-gradient rounded-tr-[600px] flex items-center">
+            <div className="w-[60%] lg:w-[40%] z-40 bg-amber-50 h-full absolute left-0 pl-6 lg:pl-20 top-0 lg:top-[100px] text-black animated-gradient rounded-tr-[600px] flex items-end pb-20 lg:items-center">
               <h4 className="font-black lg:text-[50px] text-orange-500 text-shadow-lg mimi">
                 {item.title}{" "}
                 <span className="text-white">{item.description}</span>

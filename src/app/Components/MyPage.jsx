@@ -3,7 +3,7 @@ import React from "react";
 export default function MyPage({
   children,
   className,
-  padding_x = "px-6 lg:px-[400px]",
+  padding_x = "px-6 lmd:px-[100px] lg:px-[400px]",
 }) {
   return (
     <div

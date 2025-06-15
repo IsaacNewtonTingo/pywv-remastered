@@ -111,7 +111,7 @@ export default function Footer() {
           ))}
         </div>
 
-        <button className="w-[200px] mt-10 text-[14px] h-[40px] rounded-[20px] border border-[1px] border-white shadow-lg bg-[#ad0074] text-white font-bold ">
+        <button className="w-[200px] mt-10 text-[14px] h-[40px] rounded-[20px] border-[1px] border-white shadow-lg bg-[#ad0074] text-white font-bold ">
           Donate
         </button>
       </div>

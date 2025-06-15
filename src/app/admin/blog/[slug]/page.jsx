@@ -38,9 +38,7 @@ export default function Page({ params }) {
   useEffect(() => {
     async function fetchPost() {
       try {
-        const res = await fetch(
-          `${process.env.NEXT_PUBLIC_APP_URL}/api/blog?slug=${slug}`
-        );
+        const res = await fetch(`/api/blog?slug=${slug}`);
         const json = await res.json();
         const foundPost = json.data?.[0];
         setPost(foundPost);
