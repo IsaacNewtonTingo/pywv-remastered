@@ -43,7 +43,7 @@ export default function Page() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 mt-10">
-          {posts.data.map((item) => (
+          {posts.map((item) => (
             <NewsCard item={item} key={item._id} />
           ))}
         </div>
