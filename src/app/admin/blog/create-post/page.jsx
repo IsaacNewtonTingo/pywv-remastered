@@ -129,6 +129,7 @@ export default function Page() {
             onChange={(e) => setTitle(e.target.value)}
             required={true}
             placeholder={"Your title here"}
+            maxLength={160}
           />
 
           <Label>Post Preview*</Label>
@@ -138,6 +139,7 @@ export default function Page() {
             onChange={(e) => setPreview(e.target.value)}
             required={true}
             placeholder={"Your preview here"}
+            maxLength={160}
           />
 
           <Label className="mb-4">Content*</Label>

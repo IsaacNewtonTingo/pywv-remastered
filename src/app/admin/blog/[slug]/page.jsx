@@ -150,6 +150,7 @@ export default function Page({ params }) {
           onChange={(e) => setTitle(e.target.value)}
           required={true}
           placeholder={"Your title here"}
+          maxLength={160}
         />
 
         <Label>Post Preview*</Label>

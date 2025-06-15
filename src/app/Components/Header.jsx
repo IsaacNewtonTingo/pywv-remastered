@@ -104,13 +104,15 @@ export default function Header() {
   return (
     <div className="bg-[#ffddeb] h-[100px] flex items-center justify-between shadow-lg px-[40px] text-[20px] w-full z-40 fixed top-0 left-0">
       {/* logo */}
-      <Image
-        src={"/pywv-logo.webp"}
-        width={80}
-        height={80}
-        className="wobble"
-        alt="PYWV Logo"
-      />
+      <Link href={"/"}>
+        <Image
+          src={"/pywv-logo.webp"}
+          width={80}
+          height={80}
+          className="wobble"
+          alt="PYWV Logo"
+        />
+      </Link>
 
       {/* links */}
       <div className="items-center gap-4 hidden lg:flex">

@@ -61,6 +61,50 @@ export async function POST(req) {
   }
 }
 
+export async function GET(req) {
+  try {
+    await connectDB();
+
+    const { searchParams } = new URL(req.url);
+    const limit = parseInt(searchParams.get("limit") || "20");
+    const page = parseInt(searchParams.get("page") || "0");
+    const admin = searchParams.get("admin");
+    const slug = searchParams.get("slug");
+
+    let query = {};
+    if (!admin) {
+      query = {
+        status: 1,
+      };
+    }
+    if (slug) {
+      query = {
+        slug,
+      };
+    }
+    const posts = await blog
+      .find(query)
+      .populate({
+        path: "user_id",
+        select: "first_name last_name profile_picture",
+      })
+      .skip(parseInt(page) * parseInt(limit))
+      .limit(limit)
+      .sort({ createdAt: -1 });
+    return Response.json({
+      status: "Success",
+      message: "Blogs retrieved successfully",
+      data: posts,
+    });
+  } catch (error) {
+    console.log(error);
+    return Response.json({
+      status: "Failed",
+      message: "An error occured",
+    });
+  }
+}
+
 export async function PUT(req) {
   try {
     await connectDB();
@@ -143,48 +187,5 @@ async function getSlug(name) {
     return slug + "-" + rndm;
   } else {
     return slug;
-  }
-}
-
-export async function GET(req) {
-  try {
-    await connectDB();
-
-    const { searchParams } = new URL(req.url);
-    const limit = parseInt(searchParams.get("limit") || "20");
-    const page = parseInt(searchParams.get("page") || "0");
-    const admin = searchParams.get("admin");
-    const slug = searchParams.get("slug");
-
-    let query = {};
-    if (!admin) {
-      query = {
-        status: 1,
-      };
-    }
-    if (slug) {
-      query = {
-        slug,
-      };
-    }
-    const posts = await blog
-      .find(query)
-      .populate({
-        path: "user_id",
-        select: "first_name last_name profile_picture",
-      })
-      .skip(parseInt(page) * parseInt(limit))
-      .limit(limit)
-      .sort({ createdAt: -1 });
-    return Response.json({
-      status: "Success",
-      message: "Blogs retrieved successfully",
-      data: posts,
-    });
-  } catch (error) {
-    return Response.json({
-      status: "Failed",
-      message: "An error occured",
-    });
   }
 }
